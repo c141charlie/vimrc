@@ -1,3 +1,9 @@
+" This file requires you to install Vundle
+" $ git clone https://github.com/gmarik/Vundle.vim.git
+" ~/.vim/bundle/Vundle.vim
+"
+" Don't forget to install Plugins in Vim via :PluginInstall
+
 set nocompatible              " required 
 filetype off                  " required
 
@@ -57,7 +63,12 @@ au BufNewFile,BufRead *.py
     \| set fileformat=unix
 
 " Fix unecessary whitespace
+" define BadWhitespace before using in a match
+highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Fix UTF-8 Support
 set encoding=utf-8
+
+" Cold folding
+Plugin 'tmhedberg/SimpylFold'
